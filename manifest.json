@@ -1,16 +1,23 @@
 {
     "manifest_version": 2,
-    "name": "Automatic Events",
+    "name": "Automatic Events to Kom Club",
     "version": "1.0",
-    "description": "Collects and processes events automatically.",
+    "description": "Collects and joins events automatically.",
     "permissions": [
       "tabs",
       "activeTab",
       "https://www.kom.club/*",
       "https://www.strava.com/*"
     ],
+    "icons": {
+      "16": "images/icon.png",
+      "32": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    },
     "browser_action": {
-      "default_title": "Run events"
+      "default_title": "Run events",
+      "default_icon": "images/icon.png"
     },
     "background": {
       "scripts": ["background.js"]
