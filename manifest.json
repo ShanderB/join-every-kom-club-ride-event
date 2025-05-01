@@ -5,7 +5,9 @@
     "description": "Collects and processes events automatically.",
     "permissions": [
       "tabs",
-      "activeTab"
+      "activeTab",
+      "https://www.kom.club/*",
+      "https://www.strava.com/*"
     ],
     "browser_action": {
       "default_title": "Run events"
