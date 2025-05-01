@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "Automatic Events",
+    "version": "1.0",
+    "description": "Collects and processes events automatically.",
+    "permissions": [
+      "tabs",
+      "activeTab"
+    ],
+    "browser_action": {
+      "default_title": "Run events"
+    },
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "applications": {
+      "gecko": {
+        "id": "events@example.com"
+      }
+    }
+}
