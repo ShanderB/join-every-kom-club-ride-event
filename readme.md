@@ -1,4 +1,9 @@
-# Join all event on Kom Club
+# Disclaimer
+This extension is an unverified extension. To use following this guide, you need to use one of the supported versions:
+[Firefox Extension Workshop](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#signing-your-addons))
+
+
+# Join all events on Kom Club
 
 This browser extension allows you to quickly join all ride events listed on Kom Club. When you click the extension button, it will automatically redirect you to Kom Club, get all ride events and join all of then (if you didn't joined).
 
