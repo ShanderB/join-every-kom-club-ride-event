@@ -2,6 +2,7 @@
 This extension is an unverified extension. To use following this guide, you need to use one of the supported versions:
 [Firefox Extension Workshop](https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#signing-your-addons))
 
+TODO: alert when finish. Decrease delay
 
 # Join all events on Kom Club
 
