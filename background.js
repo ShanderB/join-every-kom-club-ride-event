@@ -1,14 +1,14 @@
 const TARGET_URL = "https://www.kom.club/?register=true&state=&code=3bf32931c16bb587d93bb8bf2588fb3fdbacf734&scope=";
 
 // Function that returns the code to be executed in the tab to collect event links
-function coletarLinks(tabId) {
+function colectUrls() {
     // Shows the tab id in the console (for debugging)
-    console.log(tabId);
     return `
         (async function() {
             // Selects the current events tab
             var challengesTab = window.document.getElementById('challenges-tab');
             if (challengesTab && challengesTab.children[1] && challengesTab.children[1].children[0]) {
+                challengesTab.scrollIntoView({ behavior: "smooth", block: "center" });
                 challengesTab.children[1].children[0].click();
             }
 
@@ -21,7 +21,7 @@ function coletarLinks(tabId) {
                 bikeFilter.click();
             }
 
-            // Waits another second to ensure the filter is applied
+            // Waits another 1 second to ensure the filter is applied
             await new Promise(resolve => setTimeout(resolve, 1000));
 
             // Collects all challenge list elements
@@ -59,7 +59,7 @@ browser.browserAction.onClicked.addListener(async () => {
                 setTimeout(() => {
                     // Executes the script to collect event links
                     browser.tabs.executeScript(tab.id, {
-                        code: coletarLinks(tab.id)
+                        code: colectUrls()
                     }).then(results => {
                         const links = results[0] || [];
                         console.log("Collected links:", results);
@@ -75,8 +75,12 @@ browser.browserAction.onClicked.addListener(async () => {
                                             // Clicks the join challenge button, if it exists
                                             browser.tabs.executeScript(newTab.id, {
                                                 code: `
-                                                    var btn = window.document.getElementsByClassName('Button--btn--1i5yb Button--primary--Phrgk btn-sm btn-block text-footnote ChallengeJoinButton--button--Q7s71')[0];
-                                                    if(btn) btn.click();
+                                                setTimeout(() => {
+                                                    var btn = window.document.querySelector('[data-cy="challenge_join_button"]');
+                                                    if(btn) {
+                                                        btn.click();
+                                                    }
+                                                        }, 2000);
                                                 `
                                             }).then(() => {
                                                 // Waits 3 seconds to ensure the action is performed and closes the tab
